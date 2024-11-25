@@ -73,3 +73,79 @@ function handleTodoActions(e) {
         todo.remove();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get todos from local storage and display them
+function getLocalTodos() {
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+    todos.forEach(function(todo) {
+        if (!todo.text) {
+            console.error("Missing text for todo:", todo);
+            return; // Skip this todo if it's invalid
+        }
+
+        const todoDiv = document.createElement("div");
+        todoDiv.classList.add("todo");
+        todoDiv.setAttribute("data-id", todo.id); // Set the unique ID
+
+        const newTodo = document.createElement("li");
+        newTodo.classList.add("todo-item");
+        newTodo.innerText = todo.text;
+        if (todo.completed) {
+            todoDiv.classList.add("completed");
+        }
+        todoDiv.appendChild(newTodo);
+
+        todoDiv.appendChild(createButton('<i class="fas fa-check-circle"></i>', "complete-btn"));
+        todoDiv.appendChild(createButton('<i class="fas fa-edit"></i>', "edit-btn"));
+        todoDiv.appendChild(createButton('<i class="fas fa-trash"></i>', "trash-btn"));
+
+        todoList.appendChild(todoDiv);
+    });
+}
