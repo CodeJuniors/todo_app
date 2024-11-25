@@ -150,45 +150,26 @@ function getLocalTodos() {
     });
 }
 
+// Update local storage with the current list of todos
+function updateLocalTodos(todo) {
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+    const todoText = todo.querySelector(".todo-item").innerText;
+    const completed = todo.classList.contains("completed");
 
+    const updatedTodos = todos.map(item => {
+        if (item.text === todoText) {
+            item.completed = completed;
+        }
+        return item;
+    });
 
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Remove todo from local storage
+function removeLocalTodos(todo) {
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+    const todoId = todo.getAttribute("data-id"); // Retrieve the ID from the data attribute
+    const updatedTodos = todos.filter(item => item.id !== parseInt(todoId));
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+}
