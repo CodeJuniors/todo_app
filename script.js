@@ -8,7 +8,39 @@ todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", handleTodoActions);
 filterOption.addEventListener("change", filterTodo);
 
+// Add a new task
+function addTodo(event) {
+    event.preventDefault(); // Prevent form submission
 
+    // Ensure input is not empty
+    const todoText = todoInput.value.trim();
+    if (todoText === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    // Create todo item
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+
+    const newTodo = document.createElement("li");
+    newTodo.classList.add("todo-item");
+    newTodo.innerText = todoText;
+    todoDiv.appendChild(newTodo);
+
+    // Add buttons
+    todoDiv.appendChild(createButton('<i class="fas fa-check-circle"></i>', "complete-btn"));
+    todoDiv.appendChild(createButton('<i class="fas fa-edit"></i>', "edit-btn"));
+    todoDiv.appendChild(createButton('<i class="fas fa-trash"></i>', "trash-btn"));
+
+    todoList.appendChild(todoDiv);
+
+    // Save to local storage
+    saveLocalTodos(todoText);
+
+    // Clear input field
+    todoInput.value = "";
+}
 
 
 
