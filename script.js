@@ -108,6 +108,17 @@ function handleTodoActions(e) {
 
 
 
+// Save the new task to local storage
+function saveLocalTodos(todo) {
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
+    const newTodo = {
+        id: Date.now(), // Generate a unique ID
+        text: todo,
+        completed: false
+    };
+    todos.push(newTodo);
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 
 
