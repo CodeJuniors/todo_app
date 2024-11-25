@@ -108,38 +108,6 @@ function handleTodoActions(e) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Save the new task to local storage
 function saveLocalTodos(todo) {
     let todos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -151,17 +119,6 @@ function saveLocalTodos(todo) {
     todos.push(newTodo);
     localStorage.setItem("todos", JSON.stringify(todos));
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // Get todos from local storage and display them
 function getLocalTodos() {
@@ -192,6 +149,7 @@ function getLocalTodos() {
         todoList.appendChild(todoDiv);
     });
 }
+
 // Update local storage with the current list of todos
 function updateLocalTodos(todo) {
     let todos = JSON.parse(localStorage.getItem("todos")) || [];
