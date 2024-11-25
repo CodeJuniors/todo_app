@@ -73,6 +73,40 @@ function handleTodoActions(e) {
         todo.remove();
     }
 }
+// Filter tasks based on completion status
+function filterTodo() {
+    const todos = todoList.childNodes;
+    todos.forEach(function(todo) {
+        switch (filterOption.value) {
+            case "all":
+                todo.style.display = "flex";
+                break;
+            case "completed":
+                if (todo.classList.contains("completed")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+                break;
+            case "incomplete":
+                if (!todo.classList.contains("completed")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+                break;
+        }
+    });
+}
+
+// Create a button element with innerHTML and className
+function createButton(innerHTML, className) {
+    const button = document.createElement("button");
+    button.innerHTML = innerHTML;
+    button.classList.add(className);
+    return button;
+}
+
 
 
 
