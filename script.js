@@ -42,38 +42,6 @@ function addTodo(event) {
     todoInput.value = "";
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Handle complete, edit, and delete actions
 function handleTodoActions(e) {
     const item = e.target;
