@@ -1,4 +1,4 @@
-const todoInput = document.querySelector(".todo-input");
++const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
@@ -73,6 +73,7 @@ function handleTodoActions(e) {
         todo.remove();
     }
 }
+
 // Filter tasks based on completion status
 function filterTodo() {
     const todos = todoList.childNodes;
@@ -106,9 +107,6 @@ function createButton(innerHTML, className) {
     button.classList.add(className);
     return button;
 }
-
-
-
 
 // Save the new task to local storage
 function saveLocalTodos(todo) {
